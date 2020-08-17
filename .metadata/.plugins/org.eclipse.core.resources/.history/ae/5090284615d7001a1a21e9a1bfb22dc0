@@ -1,0 +1,20 @@
+package co.kr.abacus.spring;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import co.kr.abacus.spring.dev.ModelDevice;
+
+@SpringBootApplication
+public class Exp01Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Exp01Application.class, args);
+		
+		ModelDevice modelDevice = new ModelDevice();
+		
+		modelDevice.sale();
+		modelDevice.installment();
+	}
+
+}

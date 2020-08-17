@@ -1,0 +1,46 @@
+package co.kr.abacus.spring.filterInterception.filter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+@Order(1)
+@Component
+public class ServletFilter implements Filter { 
+	
+	Logger logger = LoggerFactory.getLogger(ServletFilter.class);
+	
+	@Override
+    public void init(FilterConfig config) throws ServletException {
+		logger.info("===== init filter =====");
+    }
+	
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		logger.info("***** javax.servlet.Filter **** ");
+		// TODO 전처리 
+		chain.doFilter(request, response); 
+		// TODO 후처리 }
+		
+	}
+	
+	 @Override
+	 public void destroy() {
+		 logger.info("===== filter destory =====");
+	 }
+}
+
+
+
+

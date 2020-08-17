@@ -1,0 +1,13 @@
+package co.kr.abacus.spring.javaconfig;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ExpJavaconfigApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ExpJavaconfigApplication.class, args);
+	}
+
+}

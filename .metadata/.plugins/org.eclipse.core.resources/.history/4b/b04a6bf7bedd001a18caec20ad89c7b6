@@ -1,0 +1,5 @@
+package co.kr.abacus.spring.filterInterception.interceptor;
+
+public class WebMvcConfig {
+
+}

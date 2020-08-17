@@ -1,0 +1,64 @@
+package co.kr.abacus.spring.di;
+
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ApplicationEventMulticaster;
+import org.springframework.core.ResolvableType;
+
+public class ExpDiRunner implements ApplicationRunner, ApplicationEventMulticaster {
+
+	public ExpDiRunner() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void addApplicationListener(ApplicationListener<?> listener) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addApplicationListenerBean(String listenerBeanName) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeApplicationListener(ApplicationListener<?> listener) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeApplicationListenerBean(String listenerBeanName) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeAllListeners() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void multicastEvent(ApplicationEvent event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void multicastEvent(ApplicationEvent event, ResolvableType eventType) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+}

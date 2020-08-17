@@ -1,0 +1,9 @@
+package co.kr.abacus.spring.javaconfig.config;
+
+public class ServiceConfig {
+
+	public ServiceConfig() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

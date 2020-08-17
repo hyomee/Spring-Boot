@@ -1,0 +1,52 @@
+package co.kr.abacus.spring.aop.aspect;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+public class EntrBySvcBeanAspect {
+	Logger logger = LoggerFactory.getLogger(EntrBySvcBeanAspect.class);
+	
+	// Pointcut 정의 
+	@Pointcut("execution(* co.kr.abacus.spring.aop.entrsvc.service.EntrBySvcService.entrBySvc(..))")
+	public void entrBySvc() {};
+	
+	//@Before("execution(* co.kr.abacus.spring.aop.entrsvc.service.EntrBySvcService.entrBySvc(..))")
+	@Before("entrBySvc()")
+	public void beforeService() {
+		logger.info("*** 실행 이전 ");
+	}
+	
+	//@AfterReturning("execution(* co.kr.abacus.spring.aop.entrsvc.service.EntrBySvcService.entrBySvc(..))")
+	@AfterReturning("entrBySvc()")
+	public void afterReturningService() {
+		logger.info("*** 실행 성공  ");
+	}
+	
+	//@AfterThrowing("execution(* co.kr.abacus.spring.aop.entrsvc.service.EntrBySvcService.entrBySvc(..))")
+	@AfterThrowing("entrBySvc()")
+	public void AfterThrowingService() {
+		logger.info("*** 실행 실패  ");
+	}
+
+	@Around("entrBySvc()")
+	public void watchEntrBySvc(ProceedingJoinPoint  pjp) {
+		logger.info("start - " + pjp.getSignature().getDeclaringTypeName() + " / " + pjp.getSignature().getName());
+        try {
+			pjp.proceed();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        logger.info("finished - " + pjp.getSignature().getDeclaringTypeName() + " / " + pjp.getSignature().getName());
+	}
+}

@@ -1,0 +1,5 @@
+package co.kr.abacus.spring.aop.config;
+
+public class EntrBySvcConfig {
+
+}

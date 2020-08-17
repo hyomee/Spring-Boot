@@ -1,0 +1,25 @@
+package co.kr.abacus.spring.di.entr.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import co.kr.abacus.spring.di.entrsvc.service.EntrBySvcService;
+
+@Component("entrService")
+public class EntrServiceImpl implements EntrService {
+	
+	@Autowired
+	private EntrBySvcService entrBySvcServcie;
+	
+	public EntrServiceImpl(EntrBySvcService entrBySvcServcie) {
+		this.entrBySvcServcie = entrBySvcServcie;
+	}
+	
+
+	@Override
+	public void entrServcie() {
+		System.out.println("가입 서비스");
+		entrBySvcServcie.entrBySvc();
+	}
+
+}

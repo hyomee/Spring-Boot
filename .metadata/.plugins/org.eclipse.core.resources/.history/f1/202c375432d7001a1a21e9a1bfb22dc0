@@ -1,0 +1,13 @@
+package co.kr.abacus.spring.xml;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Exp011Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Exp011Application.class, args);
+	}
+
+}

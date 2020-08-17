@@ -1,0 +1,7 @@
+1597358242196	Rename package 'co.kr.abacus.spring.xml'
+1597358294457	Rename package 'co.kr.abacus.spring.filter'
+1597358309302	Rename package 'co.kr.abacus.spring.filter.filter'
+1597358354685	Rename package 'co.kr.abacus.spring.filteinteception.filter'
+1597359653518	Rename type 'GenericFilterBean'
+1597359915902	Rename type 'GenericFilterBeanFlterConfig'
+1597359940301	Rename type 'GenericFilterBeanFilter'

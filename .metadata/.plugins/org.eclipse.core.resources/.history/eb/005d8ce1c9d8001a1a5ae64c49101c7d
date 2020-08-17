@@ -1,0 +1,5 @@
+package co.kr.abacus.spring.aop.aspect;
+
+public class LogAspect {
+
+}

@@ -1,0 +1,13 @@
+package co.kr.abacus.spring.annotation;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ExpAnnotationApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ExpAnnotationApplication.class, args);
+	}
+
+}

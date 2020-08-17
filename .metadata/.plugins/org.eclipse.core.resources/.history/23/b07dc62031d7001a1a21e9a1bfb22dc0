@@ -1,0 +1,11 @@
+package co.kr.abacus.spring.xml.entr.service;
+
+public class EntrServiceImpl implements EntrService {
+
+	
+	
+	public void entr() {
+		System.out.println("가입 서비스");
+	}
+
+}

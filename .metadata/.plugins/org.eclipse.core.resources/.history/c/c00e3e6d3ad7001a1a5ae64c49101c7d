@@ -1,0 +1,15 @@
+package co.kr.abacus.spring.annotation.entr.service;
+
+public class EntrServiceImpl implements EntrService {
+
+	public EntrServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void entrServcie() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

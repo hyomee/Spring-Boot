@@ -1,0 +1,22 @@
+package co.kr.abacus.spring.annotation;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ImportResource;
+
+import co.kr.abacus.spring.annotation.entr.service.EntrService;
+
+@SpringBootApplication
+@ImportResource({"classpath*:applicationContext.xml"})
+public class ExpAnnotationApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext applicationContext = SpringApplication.run(ExpAnnotationApplication.class, args);
+		
+		EntrService entrService = (EntrService) applicationContext.getBean("EntrService");
+		
+		entrService.entrServcie();
+	}
+
+}

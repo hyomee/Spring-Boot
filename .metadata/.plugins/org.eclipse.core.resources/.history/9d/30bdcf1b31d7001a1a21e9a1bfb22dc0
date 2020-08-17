@@ -1,0 +1,11 @@
+package co.kr.abacus.spring.xml.entrsvc.service;
+
+public class EntrBySvcImpl implements EntrBySvcService {
+
+	@Override
+	public void entrBySvc() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

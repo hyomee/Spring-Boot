@@ -1,0 +1,5 @@
+package co.kr.abacus.spring.filterInterception.filter;
+
+public class GenericFilterBeanFlter implements GenericFilterBeanFlter{
+
+}
