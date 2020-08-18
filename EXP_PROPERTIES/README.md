@@ -12,7 +12,7 @@ Spring Boot에서 환경 파일의 위치 다음 위치에 있으며 기본 파�
 ### 환경 파일 구분 
 환경 파일을 개발, 검증, 운영기에 각각 틀리게 적용 할 수 있으며 적용을 하기 위해서는 **spring.profiles.active**을 설정 하여야 한다.
 1. 환경별로 properties.yml을 만든다.
- - local : application-local.yml
- - dev : application-dev.yml
- - real : application-dev.yml
+	- local : application-local.yml
+	- dev : application-dev.yml
+	- real : application-dev.yml
 
