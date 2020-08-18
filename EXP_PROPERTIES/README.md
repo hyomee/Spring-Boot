@@ -14,9 +14,25 @@ Spring Boot에서 환경 파일의 위치 다음 위치에 있으며 기본 파�
 1. 환경별로 properties.yml을 만든다.
 	- local : application-local.yml
 	- dev : application-dev.yml
-	- real : application-dev.yml
+	- prod : application-prod.yml
+
+	#application-local.yml
+	```
+	user:
+  		value1: 로컬
+	```
+	#application-dev.yml
+	```
+	user:
+  		value1: 개발
+	```
+	#application-prod.yml
+	```
+	user:
+  		value1: 운영
+	```
 2. application.yml에 active 속성을 지정 한다.
-	- spring.profiles.active
+	- spring.profiles.active = local
 
 	#application.yml
 	```
@@ -27,18 +43,27 @@ Spring Boot에서 환경 파일의 위치 다음 위치에 있으며 기본 파�
 	user:
   		value: 기본
 	```
-#application-local.yml
-```
-user:
-  value1: 로컬
-```
-#application-dev.yml
-```
-user:
-  value1: 개발
-```
-#application-prod.yml
-```
-user:
-  value1: 운영
-```
+
+3. STS 또는 Eclipse에서 Boot 실행시 지정 
+	Run Configurations > Spring Boot Tabs > profiles 지정  ( 예: dev )
+	application.yml의 spring.profiles.active가 local로 지정이 되어 있어도 여기에서 지정된 것을 실행 된다. 
+	
+	```
+	2020-08-18 23:53:15.117  INFO 12452 --- [           main] c.k.a.s.p.ExpPropertiesApplication       : Started ExpPropertiesApplication in 0.65 seconds (JVM running for 1.25)
+	value :: 기본
+	value1 :: 개발
+	```
+
+4. 배포시는 다음과 같이 실행을 하여 지정 할 수 있다.
+	- java -Dspring.profiles.active=prod  -jar class_name.jar
+ 	- 해석되는 순서
+ 		- 명령행 인수
+ 		- 외부 application-{profiles}.yml
+ 		- 외부 application.yml
+ 		- 내부 application-{profiles}.yml
+ 		- 내부 application.yml
+ 		
+	
+
+	 
+	
