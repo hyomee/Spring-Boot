@@ -17,5 +17,7 @@ Spring Boot에서 환경 파일의 위치 다음 위치에 있으며 기본 파�
 	- real : application-dev.yml
 2. application.yml에 active 속성을 지정 한다.
 	- spring.profiles.active
-	
+
+
+!(eclipeconfig)(https://github.com/hyomee/Spring-Boot-Study/blob/master/EXP_PROPERTIES/images/runconfig.PNG)
 
