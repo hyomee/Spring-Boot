@@ -19,5 +19,5 @@ Spring Boot에서 환경 파일의 위치 다음 위치에 있으며 기본 파�
 	- spring.profiles.active
 
 
-!(eclipeconfig)(https://github.com/hyomee/Spring-Boot-Study/blob/master/EXP_PROPERTIES/images/runconfig.PNG)
+!(https://github.com/hyomee/Spring-Boot-Study/blob/master/EXP_PROPERTIES/images/runconfig.PNG)
 
