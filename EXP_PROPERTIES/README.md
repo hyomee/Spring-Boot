@@ -18,15 +18,15 @@ Spring Boot에서 환경 파일의 위치 다음 위치에 있으며 기본 파�
 2. application.yml에 active 속성을 지정 한다.
 	- spring.profiles.active
 
-#application.yml
-```
-spring:
-  profiles:
-    active: local
+	#application.yml
+	```
+	spring:
+  		profiles:
+    		active: local
 
-user:
-  value: 기본
-```
+	user:
+  		value: 기본
+	```
 #application-local.yml
 ```
 user:
