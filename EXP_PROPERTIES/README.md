@@ -15,4 +15,7 @@ Spring Boot에서 환경 파일의 위치 다음 위치에 있으며 기본 파�
 	- local : application-local.yml
 	- dev : application-dev.yml
 	- real : application-dev.yml
+2. application.yml에 active 속성을 지정 한다.
+	- spring.profiles.active
+	
 
