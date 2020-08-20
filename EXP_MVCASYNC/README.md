@@ -36,7 +36,7 @@ HTTP의 요청이 증가 함에 따라 블록된 스레드를 사용 하는 것�
 	2020-08-20 23:57:12.852 DEBUG 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
 	2020-08-20 23:57:12.863 DEBUG 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
 	2020-08-20 23:57:12.863  INFO 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-	2020-08-20 23:57:12.871 DEBUG 12312 --- \*\*[nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}\*\*
+	2020-08-20 23:57:12.871 DEBUG 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
 	2020-08-20 23:57:12.875 DEBUG 12312 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to co.kr.abacus.spring.async.controller.AsyncCallableController#callable()
 	2020-08-20 23:57:12.879  INFO 12312 --- [nio-8080-exec-1] c.k.a.s.a.c.AsyncCallableController      : Callable Start
 	2020-08-20 23:57:12.884 DEBUG 12312 --- [nio-8080-exec-1] o.s.w.c.request.async.WebAsyncManager    : Started async request
@@ -50,7 +50,11 @@ HTTP의 요청이 증가 함에 따라 블록된 스레드를 사용 하는 것�
 	2020-08-20 23:57:15.298 DEBUG 12312 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ASYNC" dispatch, status 200</pre>
 	
 	<h4>설명</h4>
-	요청 스레드 nio-8080-exec-1에서 요청 전문을 받아서 
+	
+	1. nio-8080-exec-1 : DispatcherServlet으로 요청 받음 
+	2. task-1 : 내부 처리 ( 5초간 대기 )
+	3. nio-8080-exec-2 : 실행 결과를 응답 
+	
 5. ResponseBodyEmitter : 비동기 응답을 다수의 객체로 반환 
 6. SseEmitter : 비동기 서버-전송 이벤크를 작성할 떄
 7. StreamingResponseBody : 비동기 OutStream을 작성할 떄 
