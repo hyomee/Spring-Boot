@@ -10,6 +10,44 @@ HTTP의 요청이 증가 함에 따라 블록된 스레드를 사용 하는 것�
 1. DefferedResult<V> : 다른 스레드로 생성된 비동기 결과
 2. ListenableFuture<V> : 다른 스레드로 생성된 비동기 결과
 3. CompletionStage<V>/CompletableFutrue<V> : 다른 스레드로 생성된 비동기 결과
+	```
+	// 결과 수행 후 결과를 응답 하기 위해서 CompletableFuture.supplyAsync 사용 
+	@GetMapping(value = "/completableFuturesupplyasync")
+	public CompletableFuture<String> completableFuturesupplyasync() {
+		return completableFutureService.completableFuturesupplyasync();
+	}
+	
+	// 여러 서비스가 비동기 수행 후 취합 하여 결과 응답 
+	// 서비스 완료 시점 까지 대기 
+	@GetMapping(value = "/completableFuturesupplyasyncmulti")
+	public CompletableFuture<String> completableFuturesupplyasyncmulti() {
+		return completableFutureService.completableFuturesupplyasyncmulti();
+	}
+	
+	// 여러 서비스가 비동기 수행 후 취합 하여 결과 응답 
+	// 서비스 완료 시점 까지 대기 하지 않고 바로 처리 
+	@GetMapping(value = "/completableFuturesupplyasyncmultireturn")
+	public String completableFuturesupplyasyncmultireturn() throws InterruptedException, ExecutionException {
+		completableFutureService.completableFuturesupplyasyncmulti();
+		//logger.info(" completableFuturesupplyasyncmultireturn :: " + future.get());
+		logger.info(" completableFuturesupplyasyncmultireturn :: ");
+		return "Message :: completableFuturesupplyasyncmultireturn";
+	}
+	
+	// 결과 수행 후 결과를 응답 하기 위해서 CompletableFuture.runAsync 사용 
+	@GetMapping(value = "/completableFuturerunasync")
+	public CompletableFuture<Void> completableFuturerunasync() {
+		CompletableFuture<Void> future = completableFutureService.completableFuturerunasync();
+		return future; //"Message :: CompletableFuture.RunAsync";
+	}
+	
+	// 결과에 관계 없이 비동기 수행 
+	@GetMapping(value = "/completableFuturerunasyncreturn")
+	public String completableFuturerunasyncreturn() {
+		completableFutureService.completableFuturerunasync();
+		return "Message :: CompletableFuture.RunAsync";
+	}
+	```
 4. Callable<V> : 작업이 끝난 후 생성된 결과를 비동기 처리 한다.
 	```
 	@RestController
@@ -56,5 +94,49 @@ HTTP의 요청이 증가 함에 따라 블록된 스레드를 사용 하는 것�
 	3. nio-8080-exec-2 : 실행 결과를 응답 
 	
 5. ResponseBodyEmitter : 비동기 응답을 다수의 객체로 반환 
+	```
+	@GetMapping(value = "/products")
+	public ResponseBodyEmitter products() {
+		ResponseBodyEmitter emmitter = new ResponseBodyEmitter();
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		executor.execute(()-> {
+			Iterable<Product> products = productService.findAll();
+			try {
+				for ( Product product : products) {
+					logger.info(product.toString());
+					delay();
+					emmitter.send(product);
+				}
+				emmitter.complete();
+			} catch (IOException e) {
+				emmitter.completeWithError(e);
+			}
+		});
+		executor.shutdown();
+		return emmitter;
+	}
+	```
 6. SseEmitter : 비동기 서버-전송 이벤크를 작성할 떄
+	```
+	@GetMapping(value = "/productsSse")
+	public ResponseBodyEmitter productsSse() {
+		SseEmitter emmitter = new SseEmitter();
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		executor.execute(()-> {
+			Iterable<Product> products = productService.findAll();
+			try {
+				for ( Product product : products) {
+					logger.info(product.toString());
+					delay();
+					emmitter.send(product);
+				}
+				emmitter.complete();
+			} catch (IOException e) {
+				emmitter.completeWithError(e);
+			}
+		});
+		executor.shutdown();
+		return emmitter;
+	}
+	```
 7. StreamingResponseBody : 비동기 OutStream을 작성할 떄 
