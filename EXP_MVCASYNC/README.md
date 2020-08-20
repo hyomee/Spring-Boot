@@ -61,7 +61,7 @@ HTTP의 요청이 증가 함에 따라 블록된 스레드를 사용 하는 것�
 	2020-08-20 23:46:09.579 DEBUG 18844 --- [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerAdapter : Resume with async result ["Callable Return"]
 	2020-08-20 23:46:09.589 DEBUG 18844 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/html', given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
 	2020-08-20 23:46:09.589 DEBUG 18844 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Callable Return"]
-2020-08-20 23:46:09.595 DEBUG 18844 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ASYNC" dispatch, status 200
+	2020-08-20 23:46:09.595 DEBUG 18844 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ASYNC" dispatch, status 200
 	</pre>
 	
 5. ResponseBodyEmitter : 비동기 응답을 다수의 객체로 반환 
