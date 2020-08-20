@@ -34,7 +34,7 @@ public class CompletableFutureController {
 	}
 	
 	// 여러 서비스가 비동기 수행 후 취합 하여 결과 응답 
-	// 서비스 완료 시점 까지 대기 
+	// 서비스 완료 시점 까지 대기 하지 않고 바로 처리 
 	@GetMapping(value = "/completableFuturesupplyasyncmultireturn")
 	public String completableFuturesupplyasyncmultireturn() throws InterruptedException, ExecutionException {
 		completableFutureService.completableFuturesupplyasyncmulti();
