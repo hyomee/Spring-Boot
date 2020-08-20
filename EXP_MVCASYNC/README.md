@@ -14,10 +14,14 @@ HTTP의 요청이 증가 함에 따라 블록된 스레드를 사용 하는 것�
 	```
 	@RestController
 	public class AsyncCallableController {
-	
+		
+		Logger logger = LoggerFactory.getLogger(AsyncCallableController.class);
+		
 		@GetMapping
 		public Callable<String> callable() {
+			logger.info("Callable Start");
 			return () -> {
+				logger.info("Callable Sleep : 5000");
 				Thread.sleep(ThreadLocalRandom.current().nextInt(5000));
 				return "Callable Return";
 			};
@@ -32,7 +36,7 @@ HTTP의 요청이 증가 함에 따라 블록된 스레드를 사용 하는 것�
 	2020-08-20 23:57:12.852 DEBUG 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
 	2020-08-20 23:57:12.863 DEBUG 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
 	2020-08-20 23:57:12.863  INFO 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-	2020-08-20 23:57:12.871 DEBUG 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+	2020-08-20 23:57:12.871 DEBUG 12312 --- \*\*[nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}\*\*
 	2020-08-20 23:57:12.875 DEBUG 12312 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to co.kr.abacus.spring.async.controller.AsyncCallableController#callable()
 	2020-08-20 23:57:12.879  INFO 12312 --- [nio-8080-exec-1] c.k.a.s.a.c.AsyncCallableController      : Callable Start
 	2020-08-20 23:57:12.884 DEBUG 12312 --- [nio-8080-exec-1] o.s.w.c.request.async.WebAsyncManager    : Started async request
