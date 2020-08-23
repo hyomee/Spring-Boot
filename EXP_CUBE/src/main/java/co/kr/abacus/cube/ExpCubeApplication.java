@@ -1,4 +1,4 @@
-package co.kr.aabacus.cube;
+package co.kr.abacus.cube;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

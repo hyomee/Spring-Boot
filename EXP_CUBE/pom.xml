@@ -8,7 +8,7 @@
 		<version>2.3.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>co.kr.aabacus.cube</groupId>
+	<groupId>co.kr.abacus.cube</groupId>
 	<artifactId>EXP_CUBE</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>EXP_CUBE</name>
