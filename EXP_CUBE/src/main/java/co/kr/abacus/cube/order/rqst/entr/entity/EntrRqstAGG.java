@@ -63,5 +63,18 @@ public class EntrRqstAGG extends BaseDomain{
 	// 청구계정 변경  
 	@Embedded
 	private EntrRqstChngBillAcntNoVO entrRqstChngBillAcntNoVO;
+	
+	// 가입단위일반 관리 영역 
+	@Embedded
+	private EntrRqstEtcVO entrRqstEtcVO;
+	
+	// 착신금지발신금지
+	@Embedded
+	private EntrRqstSendIcallVO entrRqstSendIcallVO;
+	
+	// PPS 구분 
+	@Embedded
+	private EntrRqstPpsVO entrRqstPpsVO;
+	
 
 }

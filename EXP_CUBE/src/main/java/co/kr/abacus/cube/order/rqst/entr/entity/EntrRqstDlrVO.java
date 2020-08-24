@@ -34,9 +34,5 @@ public class EntrRqstDlrVO {
 	// 대리점 전용 3
 	@Column(name="DLR_EXCLV_INF03")
 	private String dlrExclvInf03;
-	
-	
-	
-	
 
 }
