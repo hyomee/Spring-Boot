@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EntrOrderDTO {
+public class EntrRqstOrderDTO {
 	
 	// 가입 신청 정보 
 	private EntrRqstDTO entrRqstDTO;
