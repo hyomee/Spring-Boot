@@ -2,6 +2,7 @@ package co.kr.abacus.cube.order.rqst.svc.dto;
 
 import java.util.Date;
 
+import co.kr.abacus.cube.common.dto.BaseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RqstRsvVarDetlDTO {	
+public class RqstRsvVarDetlDTO extends BaseDTO {	
 
 	
 	private long entrSvcRqstSeqno;

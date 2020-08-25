@@ -36,6 +36,7 @@ import lombok.ToString;
 	@SecondaryTable(name="TB_SB_ETBY_SVC_ADDV_RQST",
 								pkJoinColumns=@PrimaryKeyJoinColumn(name="ENTR_SVC_RQST_SEQNO")) })
 public class SvcByEntrRqstAGG extends BaseDomain {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ENTR_SVC_RQST_SEQNO")
