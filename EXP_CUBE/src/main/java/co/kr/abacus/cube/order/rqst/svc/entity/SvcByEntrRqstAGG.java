@@ -1,16 +1,34 @@
 package co.kr.abacus.cube.order.rqst.svc.entity;
 
-import co.kr.abacus.cube.common.entity.BaseDomain;
-import co.kr.abacus.cube.order.rqst.entr.entity.EntrRqstAGG;
-import lombok.*;
-
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OrderColumn;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
+import javax.persistence.SecondaryTables;
+import javax.persistence.Table;
+
+import co.kr.abacus.cube.common.entity.BaseDomain;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name="TB_SB_SVC_BY_ENTR_RQST")
-@ToString(exclude = "rqstRsvVarDetlVO, asgnDcByNoRqst")
+@ToString(exclude = "rqstRsvVarDetlVO, asgnDcByNoRqstVO")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
@@ -91,7 +109,7 @@ public class SvcByEntrRqstAGG extends BaseDomain {
 	@CollectionTable(name = "TB_SB_ASGN_RQST_SEQNO",
 					joinColumns = { @JoinColumn(name = "ENTR_SVC_RQST_SEQNO", referencedColumnName = "ENTR_SVC_RQST_SEQNO")})
 	@OrderColumn(name="ASGN_NO_RQST_SEQNO")
-	private List<AsgnDcByNoRqstVO> asgnDcByNoRqst;
+	private List<AsgnDcByNoRqstVO> asgnDcByNoRqstVO;
 
 	@Builder
 	public SvcByEntrRqstAGG(long entrRqstNo, long workOrdrNo, long trstnNo) {
