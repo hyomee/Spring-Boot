@@ -1,6 +1,7 @@
 package co.kr.abacus.cube.order.rqst.svc.entity;
 
 import co.kr.abacus.cube.common.entity.BaseDomain;
+import co.kr.abacus.cube.order.rqst.entr.entity.EntrRqstAGG;
 import lombok.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @ToString(exclude = "rqstRsvVarDetlVO, asgnDcByNoRqst")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @SecondaryTables({
 	@SecondaryTable(name="TB_SB_ETBY_SVC_ADDV_RQST",
 								pkJoinColumns=@PrimaryKeyJoinColumn(name="ENTR_SVC_RQST_SEQNO")) })
