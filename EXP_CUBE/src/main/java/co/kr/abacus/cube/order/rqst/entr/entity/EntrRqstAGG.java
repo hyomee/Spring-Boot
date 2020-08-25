@@ -77,4 +77,6 @@ public class EntrRqstAGG extends BaseDomain{
 	private EntrRqstPpsVO entrRqstPpsVO;
 	
 
+	
+
 }
