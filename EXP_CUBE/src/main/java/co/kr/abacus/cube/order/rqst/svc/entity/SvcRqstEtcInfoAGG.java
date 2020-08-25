@@ -2,19 +2,22 @@ package co.kr.abacus.cube.order.rqst.svc.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import co.kr.abacus.cube.common.entity.BaseDomain;
+import lombok.*;
 
 // 요금제 상한 값 ( 청소년 요금제 )
 @Entity
 @Table(name="TB_SB_SVC_RQST_ETC_INFO")
+@ToString
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EqualsAndHashCode
 public class SvcRqstEtcInfoAGG extends BaseDomain {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="SVC_ETC_SEQNO")
 	private long svcEtcSeqno;
 	
@@ -41,10 +44,5 @@ public class SvcRqstEtcInfoAGG extends BaseDomain {
 	// 국제 사업자 코드 
 	@Column(name="ENPR_CD")
 	private String enprCd;
-		
-	
-	
-	
-	
 	
 }

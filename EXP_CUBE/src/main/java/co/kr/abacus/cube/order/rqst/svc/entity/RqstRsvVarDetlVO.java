@@ -3,27 +3,26 @@ package co.kr.abacus.cube.order.rqst.svc.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import co.kr.abacus.cube.common.entity.BaseDomain;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /* 신규 가입시 지정 번호 할인 등록 
 * 상품 변경시 지정 번호 할인 등록 
 * 상품 변경 없이 지정 번호 할인 변경 - 상품 신청부에 상품을 변경 없음으로 설정 
 */
+@Embeddable
 @Table(name="TB_SB_RQST_RSV_VAR_DETL")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class RqstRsvVarDetlVO extends BaseDomain {
 
-	@Id
-	@Column(name="SVC_VAR_DETL_SEQNO")
-	private long svcVarDetlSeqno;
-	
-//	@Id
-//	@Column(name="ENTR_SVC_RQST_SEQNO")
-//	private long entrSvcRqstSeqno;
-	
-	
 	@Column(name="ENTR_NO")
 	private String entrNo;
 	

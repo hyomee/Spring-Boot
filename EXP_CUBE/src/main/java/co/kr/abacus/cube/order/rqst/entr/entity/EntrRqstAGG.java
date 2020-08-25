@@ -1,27 +1,28 @@
 package co.kr.abacus.cube.order.rqst.entr.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import co.kr.abacus.cube.common.entity.BaseDomain;
+import lombok.*;
 
 @Entity
 @Table(name="TB_SB_ENTR_RQST")
-public class EntrRqstAGG extends BaseDomain{
+@ToString
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EqualsAndHashCode(callSuper = true)
+public class EntrRqstAGG extends BaseDomain {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ENTR_RQST_NO")
 	private long entrRqstNo;
 	
 	@Column(name="WORK_ODER_NO")
 	private long workOrdrNo;
-	
-	
+
 	// 서비스 코드 
-	@Embedded
+	@Embedded()
 	private EntrRqstServiceVO entrRqstServiceVO;
 	
 	// 가입 계약 처리 관련 번호 
@@ -76,7 +77,9 @@ public class EntrRqstAGG extends BaseDomain{
 	@Embedded
 	private EntrRqstPpsVO entrRqstPpsVO;
 	
-
-	
+	@Builder
+	public EntrRqstAGG(long workOrdrNo) {
+		this.workOrdrNo = workOrdrNo;
+	}
 
 }

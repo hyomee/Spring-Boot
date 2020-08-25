@@ -2,29 +2,27 @@ package co.kr.abacus.cube.order.rqst.svc.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import co.kr.abacus.cube.common.entity.BaseDomain;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /*
  * 신규 가입시 지정 번호 할인 등록 
  * 상품 변경시 지정 번호 할인 등록 
  * 상품 변경 없이 지정 번호 할인 변경 - 상품 신청부에 상품을 변경 없음으로 설정 
  */
+
+@Embeddable
 @Table(name="TB_SB_ASGN_RQST_SEQNO")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AsgnDcByNoRqstVO extends BaseDomain{
 	
-	@Id
-	@Column(name="ASGN_NO_RQST_SEQNO")
-	private long asgnNoRqstSeqno;	
-	
-//	@Id
-//	@Column(name="ENTR_SVC_RQST_SEQNO")
-//	private long entrSvcRqstSeqno;
-	
+
 	// 지정 할인 전화번호 
 	@Column(name="ASGN_DSCNT_TELNO")
 	private String asgnDscntTelno;

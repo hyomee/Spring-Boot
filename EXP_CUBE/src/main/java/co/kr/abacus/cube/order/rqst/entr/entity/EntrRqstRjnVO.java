@@ -1,10 +1,19 @@
 package co.kr.abacus.cube.order.rqst.entr.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 @Embeddable
 public class EntrRqstRjnVO {
 

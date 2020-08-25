@@ -1,27 +1,32 @@
 package co.kr.abacus.cube.order.rqst.svc.entity;
 
+import co.kr.abacus.cube.common.entity.BaseDomain;
+import lombok.*;
+
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="TB_SB_SVC_BY_ENTR_RQST")
-public class SvcByEntrRqstAGG {
-
-	// TB_SB_SVC_BY_ENTR_RQST
-	// TB_SB_ETBY_SVC_ADDV_RQST
-	
+@ToString(exclude = "rqstRsvVarDetlVO, asgnDcByNoRqst")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EqualsAndHashCode
+@SecondaryTables({
+	@SecondaryTable(name="TB_SB_ETBY_SVC_ADDV_RQST",
+								pkJoinColumns=@PrimaryKeyJoinColumn(name="ENTR_SVC_RQST_SEQNO")) })
+public class SvcByEntrRqstAGG extends BaseDomain {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ENTR_SVC_RQST_SEQNO")
 	private long entrSvcRqstSeqno;
-	
+
+	// 참조
 	@Column(name="ENTR_RQST_NO")
 	private long entrRqstNo;
-	
+
+	// 참조
 	@Column(name="WORK_ODER_NO")
 	private long workOrdrNo;
 	
@@ -69,13 +74,29 @@ public class SvcByEntrRqstAGG {
 	@Embedded
 	private SvcByEntrRqstDevVO svcByEntrRqstDevVO;
 	
-	// 유치자 정보  ->  TABLE 
+	// 유치자 정보  ->  TABLE
+	@Embedded
 	private EtbySvcAddvRqstVO etbySvcAddvRqstVO;
 	
-	// 서비스 요소 -> TABLE 
+	// 서비스 요소 -> TABLE
+	@ElementCollection(fetch = FetchType.LAZY)
+	@CollectionTable(name = "TB_SB_RQST_RSV_VAR_DETL",
+					joinColumns = { @JoinColumn(name = "ENTR_SVC_RQST_SEQNO", referencedColumnName = "ENTR_SVC_RQST_SEQNO")})
+	@OrderColumn(name="SVC_VAR_DETL_SEQNO")
 	private List<RqstRsvVarDetlVO> rqstRsvVarDetlVO;
 	
-	// 할인 지정 번호 --> TABLE 
+	// 할인 지정 번호 --> TABLE
+	@ElementCollection(fetch = FetchType.LAZY)
+	@CollectionTable(name = "TB_SB_ASGN_RQST_SEQNO",
+					joinColumns = { @JoinColumn(name = "ENTR_SVC_RQST_SEQNO", referencedColumnName = "ENTR_SVC_RQST_SEQNO")})
+	@OrderColumn(name="ASGN_NO_RQST_SEQNO")
 	private List<AsgnDcByNoRqstVO> asgnDcByNoRqst;
-	
+
+	@Builder
+	public SvcByEntrRqstAGG(long entrRqstNo, long workOrdrNo, long trstnNo) {
+		this.entrRqstNo = entrRqstNo;
+		this.workOrdrNo = workOrdrNo;
+		this.trstnNo = trstnNo;
+	}
+
 }
