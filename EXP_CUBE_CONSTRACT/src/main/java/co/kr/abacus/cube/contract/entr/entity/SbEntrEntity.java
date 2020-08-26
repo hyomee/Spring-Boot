@@ -2,21 +2,7 @@ package co.kr.abacus.cube.contract.entr.entity;
 
 import java.util.List;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OrderColumn;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.SecondaryTable;
-import javax.persistence.SecondaryTables;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import co.kr.abacus.cube.contract.common.entity.BaseEntity;
 import lombok.AccessLevel;
@@ -47,6 +33,7 @@ public class SbEntrEntity extends BaseEntity{
 	
 	// 가입계약 
 	@Embedded
+	@Basic(fetch = FetchType.LAZY)
 	private EntrCntcValue entrCntcValue;
 	
 	// 가입대리인 

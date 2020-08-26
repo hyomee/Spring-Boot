@@ -1,0 +1,5 @@
+package co.kr.abacus.cube.contract.rmng.entity;
+
+public class SbRmngGuidEntity {
+
+}

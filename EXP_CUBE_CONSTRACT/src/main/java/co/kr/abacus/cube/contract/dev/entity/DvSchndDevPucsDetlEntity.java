@@ -18,7 +18,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-// 중고폰 판매 상세 
+// 중고폰 매입 상세
 // TB_DV_RVINS_ENTR, TB_DV_SCHND_DEV_PUCS, 클럽 관련에서 사용 함 
 @Entity
 @Table(name="TB_DV_SCHND_DEV_PUCS_DETL")

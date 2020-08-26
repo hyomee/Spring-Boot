@@ -57,61 +57,61 @@ public class SvcByEntrRqstEntity extends BaseEntity {
 	
 	// 서비스 코드 
 	@Embedded
-	private SvcByEntrRqstServiceVO svcByEntrRqstServiceVO;
+	private SvcByEntrRqstServiceValue svcByEntrRqstServiceVO;
 	
 	// 가입 계약 처리 관련 번호 
 	@Embedded
-	private SvcByEntrRqstContractVO svcByEntrRqstContractVO;
+	private SvcByEntrRqstContractValue svcByEntrRqstContractVO;
 	
 	// 가입별상품정보 
 	@Embedded
-	private SvcByEntrRqstSvcVO svcByEntrRqstSvcVO;
+	private SvcByEntrRqstSvcValue svcByEntrRqstSvcVO;
 		
 	// 상품 상태에 따른 날짜 관리 
 	@Embedded
-	private SvcByEntrRqstSvcSttsVO svcByEntrRqstSvcSttsVO;
+	private SvcByEntrRqstSvcSttsValue svcByEntrRqstSvcSttsVO;
 	
 	// 상품 과금 날짜 관리 
 	@Embedded
-	private SvcByEntrRqstRtngVO svcByEntrRqstRtngVO;
+	private SvcByEntrRqstRtngValue svcByEntrRqstRtngVO;
 	
 	// 상품 의무 사용 관리 
 	@Embedded
-	private SvcByEntrRqstDutyVO svcByEntrRqstDutyVO;
+	private SvcByEntrRqstDutyValue svcByEntrRqstDutyVO;
 	
 	// 서비스 그룹 
 	@Embedded
-	private SvcByEntrRqstSvcGrpVO svcByEntrRqstSvcGrpVO;
+	private SvcByEntrRqstSvcGrpValue svcByEntrRqstSvcGrpVO;
 	
 	// 상품 예약 
 	@Embedded
-	private SvcByEntrRqstRsvVO svcByEntrRqstRsvVO;
+	private SvcByEntrRqstRsvValue svcByEntrRqstRsvVO;
 	
 	// 선납여부
 	@Embedded
-	private SvcByEntrRqstPpayVO svcByEntrRqstPpayVO;
+	private SvcByEntrRqstPpayValue svcByEntrRqstPpayVO;
 	
 	// 단말 연관 - 단말 약정 
 	@Embedded
-	private SvcByEntrRqstDevVO svcByEntrRqstDevVO;
+	private SvcByEntrRqstDevValue svcByEntrRqstDevVO;
 	
 	// 유치자 정보  ->  TABLE
 	@Embedded
-	private EtbySvcAddvRqstVO etbySvcAddvRqstVO;
+	private EtbySvcAddvRqstValue etbySvcAddvRqstVO;
 	
 	// 서비스 요소 -> TABLE
 	@ElementCollection(fetch = FetchType.LAZY)
 	@CollectionTable(name = "TB_SB_RQST_RSV_VAR_DETL",
 					joinColumns = { @JoinColumn(name = "ENTR_SVC_RQST_SEQNO", referencedColumnName = "ENTR_SVC_RQST_SEQNO")})
 	@OrderColumn(name="SVC_VAR_DETL_SEQNO")
-	private List<RqstRsvVarDetlVO> rqstRsvVarDetlVO;
+	private List<RqstRsvVarDetlValue> rqstRsvVarDetlVO;
 	
 	// 할인 지정 번호 --> TABLE
 	@ElementCollection(fetch = FetchType.LAZY)
 	@CollectionTable(name = "TB_SB_ASGN_RQST_SEQNO",
 					joinColumns = { @JoinColumn(name = "ENTR_SVC_RQST_SEQNO", referencedColumnName = "ENTR_SVC_RQST_SEQNO")})
-	@OrderColumn(name="ASGN_NO_RQST_SEQNO")
-	private List<AsgnDcByNoRqstVO> asgnDcByNoRqstVO;
+	@OrderColumn(name="ASGN_NO_RQST_SEQNO", columnDefinition = "long")
+	private List<AsgnDcByNoRqstValue> asgnDcByNoRqstVO;
 
 	@Builder
 	public SvcByEntrRqstEntity(long entrRqstNo, long workOrdrNo, long trstnNo) {

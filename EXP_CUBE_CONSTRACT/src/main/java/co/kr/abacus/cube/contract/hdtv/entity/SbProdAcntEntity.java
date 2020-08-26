@@ -72,13 +72,13 @@ public class SbProdAcntEntity extends BaseEntity{
 	@CollectionTable(name = "TB_SB_NSCR_CTN",
 					joinColumns = { @JoinColumn(name = "ACNT_SRLNO", referencedColumnName = "ACNT_SRLNO")})
 	@OrderColumn(name="HPNO_SRLNO")
-	private List<NscrCtnValue> nscrCtnValue;
+	private List<SbNscrCtnValue> nscrCtnValue;
 	
 	@ElementCollection(fetch = FetchType.LAZY)
 	@CollectionTable(name = "TB_SB_NSCR_MAC",
 					joinColumns = { @JoinColumn(name = "ACNT_SRLNO", referencedColumnName = "ACNT_SRLNO")})
 	@OrderColumn(name="MAC_ADDR_SRLNO")
-	private List<NscrMacValue> nscrMacValue;
+	private List<SbNscrMacValue> nscrMacValue;
 	
 	
 	

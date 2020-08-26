@@ -1,24 +1,14 @@
 package co.kr.abacus.cube.order.rqst.entr.entity;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-import co.kr.abacus.cube.common.entity.BaseEntity;
-import co.kr.abacus.cube.order.rqst.svc.entity.EtbySvcAddvRqstVO;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+
 /**
  * 가입신청자
  * @author meeyoun

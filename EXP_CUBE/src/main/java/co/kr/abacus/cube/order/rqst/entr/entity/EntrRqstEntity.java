@@ -29,59 +29,59 @@ public class EntrRqstEntity extends BaseEntity {
 
 	// 서비스 코드 
 	@Embedded()
-	private EntrRqstServiceVO entrRqstServiceVO;
+	private EntrRqstServiceValue entrRqstServiceVO;
 	
 	// 가입 계약 처리 관련 번호 
 	@Embedded
-	private EntrRqstContractVO entrRqstContractVO;
+	private EntrRqstContractValue entrRqstContractVO;
 	
 	// 전화 번호 관련 
 	@Embedded
-	private EntrRqstPhoneNumerVO entrRqstPhoneNumerVO;
+	private EntrRqstPhoneNumerValue entrRqstPhoneNumerVO;
 	
 	// 명의자 고객 관련 
 	@Embedded
-	private EntrRqstCustVO entrRqstCustVO;
+	private EntrRqstCustValue entrRqstCustVO;
 	
 	// 상태변경일자 관리 
 	@Embedded
-	private EntrRqstStatusChangeVO entrRqstStatusChangeVO;
+	private EntrRqstStatusChangeValue entrRqstStatusChangeVO;
 	
 	// 가입대리점 관려 
 	@Embedded
-	private EntrRqstDlrVO entrRqstDlrVO;
+	private EntrRqstDlrValue entrRqstDlrVO;
 	
 	// 가입유형 ( 정책 )
 	@Embedded
-	private EntrRqstPlcyVO entrRqstPlcyVO;
+	private EntrRqstPlcyValue entrRqstPlcyVO;
 	
 	// 번호 이동 
 	@Embedded
-	private EntrRqstMnpVO entrRqstMnpVO;
+	private EntrRqstMnpValue entrRqstMnpVO;
 	
 	// 재기입
 	@Embedded
-	private EntrRqstRjnVO entrRqstRjnVO;
+	private EntrRqstRjnValue entrRqstRjnVO;
 	
 	// 번호 변경 
 	@Embedded
-	private EntrRqstChngNumberVO entrRqstChngNumberVO;
+	private EntrRqstChngNumberValue entrRqstChngNumberVO;
 	
 	// 청구계정 변경  
 	@Embedded
-	private EntrRqstChngBillAcntNoVO entrRqstChngBillAcntNoVO;
+	private EntrRqstChngBillAcntNoValue entrRqstChngBillAcntNoValue;
 	
 	// 가입단위일반 관리 영역 
 	@Embedded
-	private EntrRqstEtcVO entrRqstEtcVO;
+	private EntrRqstEtcValue entrRqstEtcVO;
 	
 	// 착신금지발신금지
 	@Embedded
-	private EntrRqstSendIcallVO entrRqstSendIcallVO;
+	private EntrRqstSendIcallValue entrRqstSendIcallVO;
 	
 	// PPS 구분 
 	@Embedded
-	private EntrRqstPpsVO entrRqstPpsVO;
+	private EntrRqstPpsValue entrRqstPpsVO;
 	
 	// 가입 신청자 
 	@Embedded
