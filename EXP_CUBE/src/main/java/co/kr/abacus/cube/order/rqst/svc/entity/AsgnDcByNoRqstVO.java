@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import co.kr.abacus.cube.common.entity.BaseDomain;
+import co.kr.abacus.cube.common.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AsgnDcByNoRqstVO extends BaseDomain{
+public class AsgnDcByNoRqstVO extends BaseEntity{
 	
 
 	// 지정 할인 전화번호 

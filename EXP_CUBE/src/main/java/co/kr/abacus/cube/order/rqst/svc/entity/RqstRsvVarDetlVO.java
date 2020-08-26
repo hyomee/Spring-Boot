@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import co.kr.abacus.cube.common.entity.BaseDomain;
+import co.kr.abacus.cube.common.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RqstRsvVarDetlVO extends BaseDomain {
+public class RqstRsvVarDetlVO extends BaseEntity {
 
 	@Column(name="ENTR_NO")
 	private String entrNo;

@@ -1,0 +1,27 @@
+## TB_SB_WPRK_ODER_MVO : 작업오더이관 
+## TB_SB_ENTR_RQST_MNSUB : 가입 신청 주부 관계 
+## TB_SB_ENTR_RQST_NWCNS : 가입 신청 망 구성 
+## TB_SB_ESTB_ADDR : 설치주소 
+## TB_SB_DLV_CNCL_REQST : 베송취소요청 
+## TB_SB_SBSC_ONCL_REQST : 청약취소요청 
+## TB_SB_OCMP_ITNT_INFO : 터사 인터넷 정보 
+
+
+## TB_SB_OUTS_IF_SVR_INFO : 외부서버정보 
+###########################################
+## 예약 #####################################
+## TB_SB_ENTR_RSV
+## TB_SB_ENTR_ONLINE_SALE
+## TB_SB_ENTR_ONLINE_SALE_DEVH
+## TB_SB_ENTR_ONLINE_SALEH
+## TB_SB_ONSL_PAYM_RSV_T : 온라인 판매 납부 예약 일시 
+## TB_SB_RSV_SALE_INFO : 예약판매정보 
+## TB_SB_SMH_SALE_M : 스마트청액판매 정보 
+## TB_SB_SMH_SALE_H : 스마트청약판매 이력
+## TB_DV_ADSE_H : 선결재이력 ( USHOP )
+## TB_DV_CHG_RSV : 정책 기변 예약 
+## TB_DV_DEV_EQPCH_SALE_RSV : 정책기변판매예약
+## TB_DV_DEV_EQPCH_SALE_RSV_HST : 정책기변판매예약 이력 
+## TB_DV_PYM_RSV :: 단말기 납부 예약 
+## TB_DV_DEV_SALE_RSV :: 단말기 판메 예약 
+

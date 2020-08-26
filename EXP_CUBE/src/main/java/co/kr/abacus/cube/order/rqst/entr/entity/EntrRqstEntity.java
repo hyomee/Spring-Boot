@@ -2,7 +2,7 @@ package co.kr.abacus.cube.order.rqst.entr.entity;
 
 import javax.persistence.*;
 
-import co.kr.abacus.cube.common.entity.BaseDomain;
+import co.kr.abacus.cube.common.entity.BaseEntity;
 import lombok.*;
 
 @Entity
@@ -11,7 +11,13 @@ import lombok.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
-public class EntrRqstAGG extends BaseDomain {
+@SecondaryTables({
+	@SecondaryTable(name="TB_SB_ENTR_APCNT",
+								pkJoinColumns=@PrimaryKeyJoinColumn(name="ENTR_RQST_NO")),
+	@SecondaryTable(name="TB_SB_ENTR_RQST_ATRCT_INFO",
+								pkJoinColumns=@PrimaryKeyJoinColumn(name="ENTR_RQST_NO")),
+	})
+public class EntrRqstEntity extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -77,8 +83,16 @@ public class EntrRqstAGG extends BaseDomain {
 	@Embedded
 	private EntrRqstPpsVO entrRqstPpsVO;
 	
+	// 가입 신청자 
+	@Embedded
+	private EntrApcntValue entrApcntValue;
+	
+	// 가입 신청 유지차 정보 
+	@Embedded
+	private EntrRqstAtrctInfoValue entrRqstAtrctInfoValue;
+	
 	@Builder
-	public EntrRqstAGG(long workOrdrNo) {
+	public EntrRqstEntity(long workOrdrNo) {
 		this.workOrdrNo = workOrdrNo;
 	}
 

@@ -18,7 +18,7 @@ import javax.persistence.MappedSuperclass;
 @Getter
 @EqualsAndHashCode
 @MappedSuperclass
-public class BaseDomain {
+public class BaseEntity {
 
 
 	@Column(name="SYS_CREATE_DATE", nullable = false, updatable = false)

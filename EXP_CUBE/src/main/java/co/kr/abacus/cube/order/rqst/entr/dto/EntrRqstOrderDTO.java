@@ -14,9 +14,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EntrRqstOrderDTO {
-	
-	// 가입 신청 정보 
-	private EntrRqstDTO entrRqstDTO;
+		
+	// 신청 상태 구분  
+	private String entrRqstDvCd;
 	
 	// 가입 신청 상품 
 	private SvcByEntrRqstDTO svcByEntrRqstDTO;
@@ -29,6 +29,8 @@ public class EntrRqstOrderDTO {
 	
 	// 서비스 기타 정보 
 	private SvcRqstEtcInfoDTO svcRqstEtcInfoDTO;
+	
+	
 	
 	
 	

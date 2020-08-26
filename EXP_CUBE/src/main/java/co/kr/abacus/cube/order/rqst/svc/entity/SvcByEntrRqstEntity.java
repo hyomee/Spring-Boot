@@ -18,7 +18,7 @@ import javax.persistence.SecondaryTable;
 import javax.persistence.SecondaryTables;
 import javax.persistence.Table;
 
-import co.kr.abacus.cube.common.entity.BaseDomain;
+import co.kr.abacus.cube.common.entity.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -34,8 +34,9 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @SecondaryTables({
 	@SecondaryTable(name="TB_SB_ETBY_SVC_ADDV_RQST",
-								pkJoinColumns=@PrimaryKeyJoinColumn(name="ENTR_SVC_RQST_SEQNO")) })
-public class SvcByEntrRqstAGG extends BaseDomain {
+								pkJoinColumns=@PrimaryKeyJoinColumn(name="ENTR_SVC_RQST_SEQNO"))
+	})
+public class SvcByEntrRqstEntity extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -113,7 +114,7 @@ public class SvcByEntrRqstAGG extends BaseDomain {
 	private List<AsgnDcByNoRqstVO> asgnDcByNoRqstVO;
 
 	@Builder
-	public SvcByEntrRqstAGG(long entrRqstNo, long workOrdrNo, long trstnNo) {
+	public SvcByEntrRqstEntity(long entrRqstNo, long workOrdrNo, long trstnNo) {
 		this.entrRqstNo = entrRqstNo;
 		this.workOrdrNo = workOrdrNo;
 		this.trstnNo = trstnNo;

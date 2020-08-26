@@ -1,27 +1,23 @@
 package co.kr.abacus.cube.order.rqst.svc.entity;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Table;
 
-import co.kr.abacus.cube.common.entity.BaseDomain;
+import co.kr.abacus.cube.common.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 @Embeddable
-public class EtbySvcAddvRqstVO  {
+public class EtbySvcAddvRqstVO {
 
 	@Column(table="TB_SB_ETBY_SVC_ADDV_RQST", name="ENTR_NO")
 	private String entrNo;

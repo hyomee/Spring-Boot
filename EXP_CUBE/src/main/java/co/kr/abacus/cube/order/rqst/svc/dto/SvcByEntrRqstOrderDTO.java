@@ -11,6 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SvcByEntrRqstOrderDTO {
 	
+	
+	private String entrNo;
+	
 	private SvcByEntrRqstDTO svcByEntrRqstDTO;
 	private RqstRsvVarDetlDTO rqstRsvVarDetlDTO;
 

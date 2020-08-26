@@ -4,8 +4,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import co.kr.abacus.cube.common.entity.BaseDomain;
-import co.kr.abacus.cube.order.rqst.entr.entity.EntrRqstAGG;
+import co.kr.abacus.cube.common.entity.BaseEntity;
+import co.kr.abacus.cube.order.rqst.entr.entity.EntrRqstEntity;
 import lombok.*;
 
 // 요금제 상한 값 ( 청소년 요금제 )
@@ -15,7 +15,7 @@ import lombok.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
-public class SvcRqstEtcInfoAGG extends BaseDomain {
+public class SvcRqstEtcInfoAGG extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
