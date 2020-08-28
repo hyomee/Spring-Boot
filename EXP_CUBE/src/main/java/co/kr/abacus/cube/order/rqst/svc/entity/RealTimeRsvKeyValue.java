@@ -1,4 +1,4 @@
-package co.kr.abacus.cube.contract.svc.entity;
+package co.kr.abacus.cube.order.rqst.svc.entity;
 
 import java.io.Serializable;
 
@@ -7,21 +7,21 @@ import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-import lombok.Data;
-
-@Data
 @Embeddable
-public class SvcByEntrKeyValue implements Serializable {
-	
-	/**
-	 * 
-	 */
+public class RealTimeRsvKeyValue implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="ENTR_SVC_SEQ")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long entrSvcSeq;
-	
+	@Column(name="SVC_RSV_SEQNO")
+	private long svcRsvSeqmo;
+
+	// 참조
 	@Column(name="ENTR_NO")
 	private long entrNo;
+
+	// 참조
+	@Column(name="SVC_CD")
+	private long svcCd;
+	
 }

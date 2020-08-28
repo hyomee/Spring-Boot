@@ -15,6 +15,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class SbUiptvSvcInfoValue implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private String svcCd;
 
 }

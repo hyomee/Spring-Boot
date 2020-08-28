@@ -28,7 +28,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name="TB_SB_SVC_BY_ENTR_RQST")
-@ToString(exclude = "rqstRsvVarDetlVO, asgnDcByNoRqstVO")
+@ToString(exclude = "rqstRsvVarDetlValue, asgnDcByNoRqstValue")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
@@ -57,61 +57,61 @@ public class SvcByEntrRqstEntity extends BaseEntity {
 	
 	// 서비스 코드 
 	@Embedded
-	private SvcByEntrRqstServiceValue svcByEntrRqstServiceVO;
+	private SvcByEntrRqstServiceValue svcByEntrRqstServiceValue;
 	
 	// 가입 계약 처리 관련 번호 
 	@Embedded
-	private SvcByEntrRqstContractValue svcByEntrRqstContractVO;
+	private SvcByEntrRqstContractValue svcByEntrRqstContractValue;
 	
 	// 가입별상품정보 
 	@Embedded
-	private SvcByEntrRqstSvcValue svcByEntrRqstSvcVO;
+	private SvcByEntrRqstSvcValue svcByEntrRqstSvcValue;
 		
 	// 상품 상태에 따른 날짜 관리 
 	@Embedded
-	private SvcByEntrRqstSvcSttsValue svcByEntrRqstSvcSttsVO;
+	private SvcByEntrRqstSvcSttsValue svcByEntrRqstSvcSttsValue;
 	
 	// 상품 과금 날짜 관리 
 	@Embedded
-	private SvcByEntrRqstRtngValue svcByEntrRqstRtngVO;
+	private SvcByEntrRqstRtngValue svcByEntrRqstRtngValue;
 	
 	// 상품 의무 사용 관리 
 	@Embedded
-	private SvcByEntrRqstDutyValue svcByEntrRqstDutyVO;
+	private SvcByEntrRqstDutyValue svcByEntrRqstDutyValue;
 	
 	// 서비스 그룹 
 	@Embedded
-	private SvcByEntrRqstSvcGrpValue svcByEntrRqstSvcGrpVO;
+	private SvcByEntrRqstSvcGrpValue svcByEntrRqstSvcGrpValue;
 	
 	// 상품 예약 
 	@Embedded
-	private SvcByEntrRqstRsvValue svcByEntrRqstRsvVO;
+	private SvcByEntrRqstRsvValue svcByEntrRqstRsvValue;
 	
 	// 선납여부
 	@Embedded
-	private SvcByEntrRqstPpayValue svcByEntrRqstPpayVO;
+	private SvcByEntrRqstPpayValue svcByEntrRqstPpayValue;
 	
 	// 단말 연관 - 단말 약정 
 	@Embedded
-	private SvcByEntrRqstDevValue svcByEntrRqstDevVO;
+	private SvcByEntrRqstDevValue svcByEntrRqstDevValue;
 	
 	// 유치자 정보  ->  TABLE
 	@Embedded
-	private EtbySvcAddvRqstValue etbySvcAddvRqstVO;
+	private EtbySvcAddvRqstValue etbySvcAddvRqstValue;
 	
 	// 서비스 요소 -> TABLE
 	@ElementCollection(fetch = FetchType.LAZY)
 	@CollectionTable(name = "TB_SB_RQST_RSV_VAR_DETL",
 					joinColumns = { @JoinColumn(name = "ENTR_SVC_RQST_SEQNO", referencedColumnName = "ENTR_SVC_RQST_SEQNO")})
 	@OrderColumn(name="SVC_VAR_DETL_SEQNO")
-	private List<RqstRsvVarDetlValue> rqstRsvVarDetlVO;
+	private List<RqstRsvVarDetlValue> rqstRsvVarDetlValue;
 	
 	// 할인 지정 번호 --> TABLE
 	@ElementCollection(fetch = FetchType.LAZY)
 	@CollectionTable(name = "TB_SB_ASGN_RQST_SEQNO",
 					joinColumns = { @JoinColumn(name = "ENTR_SVC_RQST_SEQNO", referencedColumnName = "ENTR_SVC_RQST_SEQNO")})
 	@OrderColumn(name="ASGN_NO_RQST_SEQNO", columnDefinition = "long")
-	private List<AsgnDcByNoRqstValue> asgnDcByNoRqstVO;
+	private List<AsgnDcByNoRqstValue> asgnDcByNoRqstValue;
 
 	@Builder
 	public SvcByEntrRqstEntity(long entrRqstNo, long workOrdrNo, long trstnNo) {

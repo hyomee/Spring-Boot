@@ -1,6 +1,4 @@
-package co.kr.abacus.cube.contract.svc.entity;
-
-import java.util.Date;
+package co.kr.abacus.cube.contract.dev.entity;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -13,21 +11,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
+// 판매 시점에 발생 LTE 파워 할인 대상 관리
 @Entity
-@Table(name="TB_SB_KONG_HLMT_OPTN")
+@Table(name="TB_SB_LTE_PWR_TRGT")
 @ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
-public class SbKongHlmtOptnEntity extends BaseEntity {
+public class SbLtePwrTrgtEntity extends BaseEntity {
 	
 	@EmbeddedId
-	private KongHlmtOptnKeyValue kongHlmtOptnKeyValue;
+	private LtePwrTrgtKeyValue ltePwrTrgtKeyValue;
 	
-	private String ppCd;
-	private String sttsCd;
-	private Date valdStrtDt;
-	private Date valdEndDt;
-	private long hlmtOptnAmt;
+	private String devcMdlCd;
+	private long aceno;
+	private long billAcntNo;
 	
+	
+
 }

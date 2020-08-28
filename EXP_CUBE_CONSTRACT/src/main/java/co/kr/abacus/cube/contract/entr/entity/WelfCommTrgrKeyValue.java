@@ -1,24 +1,20 @@
-package co.kr.abacus.cube.contract.mnp.entity;
+package co.kr.abacus.cube.contract.entr.entity;
 
-import lombok.Data;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.io.Serializable;
-
-@Data
 @Embeddable
-public class IntrGnMnprKeyValue implements Serializable {
 
+public class WelfCommTrgrKeyValue implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Column(name = "ENTR_NO")
-	private long entrNo;
-
-	@Column(name = "MNP_SEQNO")
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long mnpSeqno;
+	@Column(name="WELF_COMM_TRGT_SEQNO")
+	private long svcRsvSeqno;
 
+	@Column(name="custNo")
+	private long custNo;
 }

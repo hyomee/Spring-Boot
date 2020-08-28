@@ -1,4 +1,4 @@
-package co.kr.abacus.cube.contract.svc.entity;
+package co.kr.abacus.cube.order.rqst.dc.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,36 +7,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import co.kr.abacus.cube.contract.common.entity.BaseEntity;
+import co.kr.abacus.cube.common.entity.BaseEntity;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
-// 가입자별 서비스 이벤트 관리 
 @Entity
-@Table(name="TB_SB_SVC_EVNT_BY_ENTR")
+@Table(name="TB_SB_DC_BY_ENTR_RQST")
 @ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
-public class SbSvcEvntByEntrEntity extends BaseEntity {
-	
+public class SbDcByEntrRqstEntity extends BaseEntity  {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ENTR_EVNT_SEQNO")
-	private long entrEvntSeqno;
+	@Column(name="ENTR_RQST_NO")
+	private long entrRqstNo;
 	
-	private long entrNo;
-	private String svcCd;
-	private String custCHnlCd;
-	private long entrSvcSeqno;
-	private String evntCd;
-	private String rqstDt;
-	private String evntPrssDt;
-	private String prssCd;
+	@Column(name="WORK_ODER_NO")
+	private long workOrdrNo;
 	
-
 }

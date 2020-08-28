@@ -1,10 +1,10 @@
-package co.kr.abacus.cube.contract.svcgrp.entity;
+package co.kr.abacus.cube.order.rqst.svc.entity;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import co.kr.abacus.cube.contract.common.entity.BaseEntity;
+import co.kr.abacus.cube.common.entity.BaseEntity;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -12,19 +12,18 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
-// 무한대 클럽 구성원 
 @Entity
-@Table(name="TB_SB_FMLY_PNT_GRP")
+@Table(name="TB_SB_REAL_TIME_RSV_SVC")
 @ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
-public class SbFmlyPntGrpEntity extends BaseEntity {
+public class SbRealTimeRsvEntity extends BaseEntity {
 
+	
 	@EmbeddedId
-	private FmlyPntGrpKeyValue fmlyPntGrpKeyValue;
+	private RealTimeRsvKeyValue realTimeRsvKeyValue;
 	
-	private String pntGrpCd;
-	private String grpSttsCd;
-	
+	private String svcDvCd;
+	private long entrSvcSeqno;
 }

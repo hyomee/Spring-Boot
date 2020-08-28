@@ -1,6 +1,4 @@
-package co.kr.abacus.cube.contract.svc.entity;
-
-import java.util.Date;
+package co.kr.abacus.cube.contract.entr.entity;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -13,21 +11,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+// 복지 통신 대상자 
 @Entity
-@Table(name="TB_SB_KONG_HLMT_OPTN")
+@Table(name="TB_SB_WELF_COMM_TRGP")
 @ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
-public class SbKongHlmtOptnEntity extends BaseEntity {
-	
+public class SbWelfCommTrgpEntity extends BaseEntity {
+
 	@EmbeddedId
-	private KongHlmtOptnKeyValue kongHlmtOptnKeyValue;
+	private WelfCommTrgrKeyValue welfCommTrgtKeyValue;
 	
-	private String ppCd;
-	private String sttsCd;
-	private Date valdStrtDt;
-	private Date valdEndDt;
-	private long hlmtOptnAmt;
+	private long entrNo;
 	
 }

@@ -1,4 +1,6 @@
-package co.kr.abacus.cube.contract.svc.entity;
+package co.kr.abacus.cube.contract.rmng.entity;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import co.kr.abacus.cube.contract.common.entity.BaseEntity;
+import co.kr.abacus.cube.contract.svcgrp.entity.SbEntrSvcGrpEntity;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,28 +18,23 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
-// 가입자별 서비스 이벤트 관리 
+// 시간제 서비스 장비 연동 대상 정보 
 @Entity
-@Table(name="TB_SB_SVC_EVNT_BY_ENTR")
+@Table(name="TB_SB_PERIOD_SVC_DTTM")
 @ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(callSuper = true)
-public class SbSvcEvntByEntrEntity extends BaseEntity {
-	
+public class SbPeriodSvcDttmEntity extends BaseEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ENTR_EVNT_SEQNO")
-	private long entrEvntSeqno;
+	@Column(name="TM_DATA_RMNG_SEQNO")
+	private long tmDataRmngSeqno;
+	
 	
 	private long entrNo;
+	private String svcDvCd;
 	private String svcCd;
-	private String custCHnlCd;
-	private long entrSvcSeqno;
-	private String evntCd;
-	private String rqstDt;
-	private String evntPrssDt;
-	private String prssCd;
 	
-
 }
