@@ -5,6 +5,8 @@ import javax.persistence.*;
 import co.kr.abacus.cube.common.entity.BaseEntity;
 import lombok.*;
 
+
+// 가입신규접수
 @Entity
 @Table(name="TB_SB_ENTR_RQST")
 @ToString

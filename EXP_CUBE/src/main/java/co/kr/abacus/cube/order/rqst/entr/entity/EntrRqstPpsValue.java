@@ -15,7 +15,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class EntrRqstPpsValue {
 	
-	// 발신금지여부 
+	// 
 	@Column(name="PPAY_ENTR_DV_CD")
 	private String ppayEntrDvCd;
 	

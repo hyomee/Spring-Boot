@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name="TB_SB_ENTR_SVC_GRP")
+@Table(name="TB_ARS_PERS_AUTH_HIST")
 @ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
