@@ -3,6 +3,7 @@ package co.abacus.order.receipt.orderMgmt.entity;
 
 import co.abacus.order.common.dto.ControlFieldDTO;
 import co.abacus.order.common.entity.ControlFieldVO;
+import co.abacus.order.common.utils.JpaGsonConverter;
 import co.abacus.order.common.utils.JpaJsonConverter;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -39,6 +40,7 @@ public class OrderEntity extends ControlFieldVO {
 
   @Setter
   //@Convert(converter = JpaJsonConverter.class)
+  //@Convert(converter = JpaGsonConverter.class)
   @Column(name="REQUEST_DATA", columnDefinition = "text")
   private String requestObj ;
 
