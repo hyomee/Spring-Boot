@@ -29,4 +29,4 @@ logging:
     org.springframework: INFO
     org.springframework.web: INFO
     ##org.hibernate.SQL: DEBUG
-    co.abacus: DEBUG
+    co.kr.abacus: DEBUG
