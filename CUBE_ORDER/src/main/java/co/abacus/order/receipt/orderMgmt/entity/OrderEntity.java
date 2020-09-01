@@ -1,17 +1,21 @@
 package co.abacus.order.receipt.orderMgmt.entity;
 
 
-import co.abacus.order.common.dto.ControlFieldDTO;
-import co.abacus.order.common.entity.ControlFieldVO;
-import co.abacus.order.common.utils.JpaGsonConverter;
-import co.abacus.order.common.utils.JpaJsonConverter;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import lombok.*;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import javax.persistence.*;
-import java.util.HashMap;
-import java.util.Map;
+import co.abacus.order.common.entity.ControlFieldVO;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 모바일 서비스 주문 관리
