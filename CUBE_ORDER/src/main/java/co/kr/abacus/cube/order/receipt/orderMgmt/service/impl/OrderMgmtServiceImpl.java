@@ -6,6 +6,7 @@ import co.kr.abacus.cube.order.receipt.orderMgmt.dto.OrderResponseDTO;
 import co.kr.abacus.cube.order.receipt.orderMgmt.entity.OrderContractVO;
 import co.kr.abacus.cube.order.receipt.orderMgmt.entity.OrderEntity;
 import co.kr.abacus.cube.order.receipt.orderMgmt.entity.OrderEventVO;
+import co.kr.abacus.cube.order.receipt.orderMgmt.entity.QOrderEntity;
 import co.kr.abacus.cube.order.receipt.orderMgmt.repository.OrderMgmtRepository;
 import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtCService;
 import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtService;
@@ -15,19 +16,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
+import com.querydsl.jpa.JPQLQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Optional;
 
+//
 @Slf4j
 @Service
-public class OrderMgmtServiceImpl implements OrderMgmtService {
+public class OrderMgmtServiceImpl  implements OrderMgmtService  {
 
   @Autowired
   private OrderMgmtRepository orderMgmtRepository;
@@ -84,4 +87,6 @@ public class OrderMgmtServiceImpl implements OrderMgmtService {
 
     return orderResponseDTO;
   }
+
+
 }

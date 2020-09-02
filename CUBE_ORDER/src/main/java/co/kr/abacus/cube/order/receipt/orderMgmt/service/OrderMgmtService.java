@@ -12,4 +12,6 @@ public interface OrderMgmtService {
 
   // Name기반 조회
   public OrderResponseDTO findByProdNo(String prodNo);
+
+
 }

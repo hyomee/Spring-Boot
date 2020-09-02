@@ -4,6 +4,8 @@ import co.kr.abacus.cube.order.common.dto.ControlFieldDTO;
 import co.kr.abacus.cube.order.common.utils.ControlFieldSetting;
 import co.kr.abacus.cube.order.receipt.orderMgmt.dto.OrderDTO;
 import co.kr.abacus.cube.order.receipt.orderMgmt.dto.OrderResponseDTO;
+import co.kr.abacus.cube.order.receipt.orderMgmt.entity.OrderEntity;
+import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtFindService;
 import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtService;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +21,9 @@ public class OrderMgmtController {
 
   @Autowired
   private OrderMgmtService orderMgmtService;
+
+  @Autowired
+  private OrderMgmtFindService orderMgmtFindService;
 
   @Autowired
   private ControlFieldSetting header;
@@ -49,10 +54,17 @@ public class OrderMgmtController {
   }
 
   @GetMapping(value="/prodNo/{prodNo}")
-  public OrderResponseDTO findByOrder(HttpServletRequest request,
+  public OrderResponseDTO findByProdNo(HttpServletRequest request,
                                       @PathVariable String prodNo) {
     log.debug("orderNumner :: " + prodNo);
     return orderMgmtService.findByProdNo(prodNo);
+  }
+
+  @GetMapping(value="/entrNo/{entrNo}")
+  public OrderResponseDTO findByEntrNo(HttpServletRequest request,
+                                  @PathVariable String entrNo) {
+    log.debug("entrNo :: " + entrNo);
+    return orderMgmtFindService.findByEntrNo(entrNo);
   }
 
 }
