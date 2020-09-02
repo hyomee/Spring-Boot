@@ -5,6 +5,7 @@ import co.kr.abacus.cube.order.common.utils.ControlFieldSetting;
 import co.kr.abacus.cube.order.receipt.orderMgmt.dto.OrderDTO;
 import co.kr.abacus.cube.order.receipt.orderMgmt.dto.OrderResponseDTO;
 import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtService;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,9 @@ public class OrderMgmtController {
   @Autowired
   private ControlFieldSetting header;
 
+  @Autowired
+  private Gson gson;
+
   @PostMapping(value="/createOrder")
   public void createOrder(HttpServletRequest request,
                           @RequestHeader Map<String, String> headers,
@@ -30,6 +34,7 @@ public class OrderMgmtController {
     log.debug(orderDTO.toString());
 
     ControlFieldDTO controlFieldDTO = header.setControllField(headers);
+    orderDTO.setRequestObj(gson.toJson(orderDTO));
 
     log.debug(controlFieldDTO.toString());
     orderMgmtService.createOrder(orderDTO, controlFieldDTO);
@@ -42,6 +47,14 @@ public class OrderMgmtController {
     log.debug("orderNumner :: " + orderNumner);
     return orderMgmtService.findById(orderNumner);
   }
+
+  @GetMapping(value="/prodNo/{prodNo}")
+  public OrderResponseDTO findByOrder(HttpServletRequest request,
+                                      @PathVariable String prodNo) {
+    log.debug("orderNumner :: " + prodNo);
+    return orderMgmtService.findByProdNo(prodNo);
+  }
+
 }
 
 

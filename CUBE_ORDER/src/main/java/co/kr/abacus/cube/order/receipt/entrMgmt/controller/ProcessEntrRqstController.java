@@ -4,6 +4,7 @@ import co.kr.abacus.cube.order.common.dto.ControlFieldDTO;
 import co.kr.abacus.cube.order.common.utils.ControlFieldSetting;
 import co.kr.abacus.cube.order.receipt.entrMgmt.dto.EntrRqstOrderDTO;
 import co.kr.abacus.cube.order.receipt.entrMgmt.service.ProcessEntrRqstService;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,9 @@ public class ProcessEntrRqstController {
   @Autowired
   private ProcessEntrRqstService processEntrRqstService;
 
+  @Autowired
+  private Gson gson;
+
   @PostMapping(value="/processEntrRqstOrder")
   public void processEntrRqstOrder(@RequestHeader Map<String, String> headers,
                                    @RequestBody EntrRqstOrderDTO entrRqstOrderDTO) {
@@ -30,6 +34,7 @@ public class ProcessEntrRqstController {
     log.debug("인입정보 :: " + entrRqstOrderDTO.toString());
     ControlFieldDTO controlFieldDTO = header.setControllField(headers);
     log.debug("제어필드 :: " +controlFieldDTO.toString());
+    entrRqstOrderDTO.setRequestObj(gson.toJson(entrRqstOrderDTO));
 
     entrRqstOrderDTO.setControlFieldDTO(controlFieldDTO.getOperatorId(),
             controlFieldDTO.getApplicationId(),

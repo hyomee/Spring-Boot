@@ -1,6 +1,7 @@
 package co.kr.abacus.cube.order.receipt.orderMgmt.dto;
 
 import co.kr.abacus.cube.order.common.dto.ControlFieldDTO;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.*;
 
 @Setter
@@ -20,6 +21,7 @@ public class OrderDTO extends ControlFieldDTO {
   private String billAcntNo;
   private String hldrCustNo;
   private String prodNo;
+
 
 
 

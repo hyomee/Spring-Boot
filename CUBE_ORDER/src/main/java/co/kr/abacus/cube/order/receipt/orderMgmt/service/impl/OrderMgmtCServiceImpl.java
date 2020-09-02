@@ -7,6 +7,7 @@ import co.kr.abacus.cube.order.receipt.orderMgmt.entity.OrderEntity;
 import co.kr.abacus.cube.order.receipt.orderMgmt.entity.OrderEventVO;
 import co.kr.abacus.cube.order.receipt.orderMgmt.repository.OrderMgmtRepository;
 import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtCService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -23,12 +24,16 @@ public class OrderMgmtCServiceImpl implements OrderMgmtCService {
   @Autowired
   private ModelMapper modelMapper;
 
+
+
   @Autowired
   private Gson gson;
 
   @Override
   public long createOrder(OrderDTO orderDTO, ControlFieldDTO controlFieldDTO) {
     log.debug("OrderMgmt ::" + orderDTO.toString());
+
+
 
     OrderEntity orderEntity = modelMapper.map(orderDTO, OrderEntity.class);
 
@@ -54,9 +59,9 @@ public class OrderMgmtCServiceImpl implements OrderMgmtCService {
       // 이벤트 구분 설정
       orderEntity.setOrderEventVO(orderEventVO);
       orderEntity.setOrderContractVO(orderContractVO);
-      String str = gson.toJson(orderDTO);
-      log.debug("str :: " + str);
-      orderEntity.setRequestObj( str );
+      //String str = gson.toJson(orderDTO);
+      //log.debug("str :: " + str);
+      //orderEntity.setRequestObj( str );
       log.debug("orderEntity.getOderNumber :: " + orderEntity.getOderNumber());
       orderMgmtRepository.save(orderEntity);
 

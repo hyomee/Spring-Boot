@@ -8,6 +8,7 @@ import co.kr.abacus.cube.order.receipt.entrMgmt.service.ProcessEntrRqstService;
 import co.kr.abacus.cube.order.receipt.orderMgmt.dto.OrderDTO;
 import co.kr.abacus.cube.order.receipt.orderMgmt.entity.OrderEntity;
 import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtCService;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ public class ProcessEntrRqstServiceImpl implements ProcessEntrRqstService {
   @Autowired
   private ModelMapper modelMapper;
 
+
+
   @Override
   @Transactional
   public void processEntrRqst(EntrRqstOrderDTO entrRqstOrderDTO, ControlFieldDTO controlFieldDTO) {
@@ -39,6 +42,9 @@ public class ProcessEntrRqstServiceImpl implements ProcessEntrRqstService {
             .entrNo(entrRqstOrderDTO.getEntrRqst().getEntrNo())
             .prodNo(entrRqstOrderDTO.getEntrRqst().getProdNo())
             .build();
+
+    orderDTO.setRequestObj(entrRqstOrderDTO.getRequestObj());
+
     long orderNumber = orderMgmtCService.createOrder(orderDTO, controlFieldDTO);
 
     entrRqstOrderDTO.setWorkOrdrNo(orderNumber);

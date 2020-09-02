@@ -17,6 +17,8 @@ public class ControlFieldDTO {
   private String dlServiceCode;
   private Integer dlUpdateStamp;
 
+  private String requestObj;
+
 
   public void setControlFieldDTO(String operatorId,
                          String applicationId,
@@ -40,6 +42,10 @@ public class ControlFieldDTO {
 
   public void setdlUpdateStamp(Integer dlUpdateStamp ) {
     this.dlUpdateStamp = dlUpdateStamp + 1;
+  }
+
+  public void setRequestObj(String str) {
+    this.requestObj = str;
   }
 
   private LocalDateTime getCurrentDate() {

@@ -2,7 +2,11 @@ package co.kr.abacus.cube.order.receipt.orderMgmt.dto;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.gson.JsonObject;
 import lombok.*;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 @Setter
 @Getter
@@ -12,7 +16,7 @@ import lombok.*;
 
 public class OrderResponseDTO {
 
-  private JsonNode request;
+  private HashMap requestObj;
 
   private long oderNumber;
   private String eventCode;

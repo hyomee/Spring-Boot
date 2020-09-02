@@ -9,14 +9,20 @@ import co.kr.abacus.cube.order.receipt.orderMgmt.entity.OrderEventVO;
 import co.kr.abacus.cube.order.receipt.orderMgmt.repository.OrderMgmtRepository;
 import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtCService;
 import co.kr.abacus.cube.order.receipt.orderMgmt.service.OrderMgmtService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonObject;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Optional;
 
 @Slf4j
@@ -52,15 +58,29 @@ public class OrderMgmtServiceImpl implements OrderMgmtService {
     Optional<OrderEntity> orderEntity = orderMgmtRepository.findById(oderNumber);
 
     String str = orderEntity.get().getRequestObj();
-    //String str = orderEntity.get().TO\;
+
     log.debug("findById :: str :: " + str);
     OrderResponseDTO orderResponseDTO = gson.fromJson(str,  OrderResponseDTO.class);
     orderResponseDTO.setOderNumber(oderNumber);
-    /*log.debug();
-    //log.debug("orderDTO ::" + jsonNode.toString());
-    OrderResponseDTO orderResponseDTO = OrderResponseDTO.builder()
-            .request(jsonNode)
-            .build();*/
+
+    return orderResponseDTO;
+  }
+
+  @Override
+  public OrderResponseDTO findByProdNo(String prodNo) {
+    log.debug("prodNo :: " + prodNo);
+    OrderEntity orderEntity = orderMgmtRepository.findByOrderContractVOProdNo(prodNo);
+    log.debug("orderEntity :: " + orderEntity.toString());
+    //OrderResponseDTO orderResponseDTO = orderMgmtRepository.findByOrderContractVOProdNo(prodNo);
+    OrderResponseDTO orderResponseDTO = modelMapper.map(orderEntity, OrderResponseDTO.class);
+    orderResponseDTO.setAceno(orderEntity.getOrderContractVO().getAceno());
+    orderResponseDTO.setProdNo(orderEntity.getOrderContractVO().getProdNo());
+    String str = orderEntity.getRequestObj();
+
+    //HashMap jsonNode = objectMapper.readValue(str, HashMap.class);
+    HashMap jsonNode = gson.fromJson(str, HashMap.class);
+    orderResponseDTO.setRequestObj(jsonNode);
+
 
     return orderResponseDTO;
   }

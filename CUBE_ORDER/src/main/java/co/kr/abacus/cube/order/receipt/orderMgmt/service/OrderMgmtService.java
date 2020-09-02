@@ -9,4 +9,7 @@ public interface OrderMgmtService {
   public void createOrder(OrderDTO orderDTO, ControlFieldDTO controlFieldDTO);
 
   public OrderResponseDTO findById(long oderNumber);
+
+  // Name기반 조회
+  public OrderResponseDTO findByProdNo(String prodNo);
 }
