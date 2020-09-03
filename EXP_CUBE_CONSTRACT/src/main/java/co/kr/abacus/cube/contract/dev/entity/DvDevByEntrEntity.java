@@ -27,9 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @SecondaryTables({
-	@SecondaryTable(name="TB_DV_DEVC_CIRC_MGMT",
-					pkJoinColumns= { @PrimaryKeyJoinColumn(name="ENTR_NO"), 
-									 @PrimaryKeyJoinColumn(name="DEV_SALE_SEQNO")})
+	
 	})
 public class DvDevByEntrEntity extends BaseEntity {
 	
@@ -40,12 +38,8 @@ public class DvDevByEntrEntity extends BaseEntity {
 	
 	private String devSttsCd;
 	
-	// 단말 유통 관리  
-    @Embedded
-    @Basic(fetch=FetchType.LAZY)
-    private DvDevcCircMgmtValue dvDevcCircMgmtValue;
-    
-    // 단말 유통 위약금 
+	
+	 // 단말 유통 위약금 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(
         name = "TB_DV_DEVC_CIRC_PNLT",
@@ -53,6 +47,7 @@ public class DvDevByEntrEntity extends BaseEntity {
         		 		@JoinColumn(name = "DEV_SALE_SEQNO", referencedColumnName = "DEV_SALE_SEQNO")})
     @OrderColumn(name="RECP_SEQNO")
 	private List<DvDevcCircPnltValue> dvDevcCircPnltValue;
+	
 	
 	
 

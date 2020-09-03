@@ -1,12 +1,14 @@
 package co.kr.abacus.cube.order.receipt.entrMgmt.entity;
 
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 
 @Getter
 @NoArgsConstructor

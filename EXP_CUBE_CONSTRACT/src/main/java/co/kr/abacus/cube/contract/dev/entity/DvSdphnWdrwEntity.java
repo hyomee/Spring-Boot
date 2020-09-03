@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+// 중고폰 회수 
 @Entity
 @Table(name="TB_DV_SDPHN_WDRW")
 @Getter

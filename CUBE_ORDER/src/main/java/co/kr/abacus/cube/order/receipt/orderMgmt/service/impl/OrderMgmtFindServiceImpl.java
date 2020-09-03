@@ -37,7 +37,7 @@ public class OrderMgmtFindServiceImpl extends QuerydslRepositorySupport implemen
     orderResponseDTO.setProdNo(orderEntity.getOrderContractVO().getProdNo());
     String str = orderEntity.getRequestObj();
 
-    HashMap jsonNode = gson.fromJson(str, HashMap.class);
+    HashMap<?, ?> jsonNode = gson.fromJson(str, HashMap.class);
     orderResponseDTO.setRequestObj(jsonNode);
     return orderResponseDTO;
   }

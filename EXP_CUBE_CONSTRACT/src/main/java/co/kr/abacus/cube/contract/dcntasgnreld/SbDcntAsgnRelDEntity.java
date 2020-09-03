@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-// 할인 지정 관계 설정
+// 할인 지정 관계 설정 키즈요금무료
 @Entity
 @Table(name="TB_SB_DCNT_ASGN_REL_D")
 @Getter

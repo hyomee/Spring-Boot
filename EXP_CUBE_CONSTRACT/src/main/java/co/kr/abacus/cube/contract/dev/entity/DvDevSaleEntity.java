@@ -27,7 +27,10 @@ import lombok.NoArgsConstructor;
 									@PrimaryKeyJoinColumn(name="DEV_SALE_SEQNO")}),
 	@SecondaryTable(name="TB_SBSD_PAY_INFO",
 					pkJoinColumns= { @PrimaryKeyJoinColumn(name="ENTR_NO"),
-									@PrimaryKeyJoinColumn(name="DEV_SALE_SEQNO")})
+									@PrimaryKeyJoinColumn(name="DEV_SALE_SEQNO")}),
+	@SecondaryTable(name="TB_DV_DEVC_CIRC_MGMT",
+	pkJoinColumns= { @PrimaryKeyJoinColumn(name="ENTR_NO"), 
+					 @PrimaryKeyJoinColumn(name="DEV_SALE_SEQNO")})
 	})
 public class DvDevSaleEntity extends BaseEntity {
 	
@@ -62,6 +65,13 @@ public class DvDevSaleEntity extends BaseEntity {
 	@Embedded
 	@Basic(fetch = FetchType.LAZY)
 	private DvGrtinsFeeBatchTrgtValue dvGrtinsFeeBatchTrgt;
+	
+	// 단말 유통 관리  
+    @Embedded
+    @Basic(fetch=FetchType.LAZY)
+    private DvDevcCircMgmtValue dvDevcCircMgmtValue;
+    
+   
 
 	// 단말 할부 요율 IF
 	@ElementCollection(fetch = FetchType.LAZY)
